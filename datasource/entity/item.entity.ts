@@ -1,0 +1,35 @@
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Store } from '@/datasource/entity/store.entity';
+
+@Entity()
+export class Item {
+  @PrimaryGeneratedColumn()
+  id!: number;
+
+  @Column()
+  store_id!: number;
+
+  @Column()
+  name!: string;
+
+  @Column()
+  description!: string;
+
+  @Column()
+  price!: number;
+
+  @Column()
+  amount!: number;
+
+  @Column()
+  active!: boolean;
+
+  @CreateDateColumn({ type: 'timestamp' })
+  created_at!: Date;
+
+  @UpdateDateColumn({ type: 'timestamp' })
+  updated_at!: Date;
+
+  @ManyToOne(() => Store, store => store.items)
+  store!: Store;
+}
