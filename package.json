@@ -7,5 +7,10 @@
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "ts-node": "^10.9.2",
+    "typeorm": "^0.3.20"
   }
 }
