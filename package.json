@@ -2,6 +2,10 @@
   "name": "db-script-ts",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "typeorm": "typeorm-ts-node-esm",
+    "migration:generate": "bun run typeorm -d ./datasource/ormconfig.ts migration:generate ./datasource/migration/$(echo $NAME)"
+  },
   "devDependencies": {
     "@types/bun": "latest",
     "ts-node": "^10.9.2"
@@ -10,7 +14,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "mysql": "^2.18.1",
+    "mysql2": "^3.10.1",
     "typeorm": "^0.3.20"
   }
 }
