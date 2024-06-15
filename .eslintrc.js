@@ -4,13 +4,17 @@ export default {
     browser: true,
     es2021: true,
   },
+  parser: '@typescript-eslint',
   parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
+  plugins: ['@typescript-eslint', 'prettier'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
   rules: {
-    "no-console": "error",
-    camelcase: ["error", { properties: "never" }],
-    "@typescript-eslint/consistent-type-imports": "error"
+    'prettier/prettier': ['error'],
+    'no-console': 'error',
+    camelcase: ['error', { properties: 'never' }],
+    '@typescript-eslint/consistent-type-imports': 'error',
   },
 };
