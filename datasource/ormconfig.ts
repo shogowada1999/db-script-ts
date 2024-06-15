@@ -1,5 +1,7 @@
-import { DataSource } from 'typeorm';
 import * as dotenv from 'dotenv';
+import { DataSource } from 'typeorm';
+
+import { TypeOrmNamingStrategy } from './config/naming-strategy.ts';
 
 dotenv.config();
 
@@ -14,4 +16,5 @@ export default new DataSource({
   logging: false,
   entities: ['./datasource/entity/**/*.entity.ts'],
   migrations: ['./datasource/migration/**/*.ts'],
-})
+  namingStrategy: new TypeOrmNamingStrategy(),
+});
