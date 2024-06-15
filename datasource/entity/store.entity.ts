@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
-import { Item } from '@/datasource/entity/item.entity';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany, type Relation } from 'typeorm';
+import { Item } from './item.entity.ts';
 
 @Entity()
 export class Store {
@@ -22,5 +22,5 @@ export class Store {
   updated_at!: Date;
 
   @OneToMany(() => Item, item => item.store)
-  items?: Item[];
+  items?: Relation<Item[]>;
 }
