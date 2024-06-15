@@ -3,8 +3,10 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "typeorm": "typeorm-ts-node-esm",
-    "migration:generate": "bun run typeorm -d ./datasource/ormconfig.ts migration:generate ./datasource/migration/$(echo $NAME)"
+    "typeorm": "typeorm-ts-node-esm -d ./datasource/ormconfig.ts",
+    "migration:generate": "bun run typeorm migration:generate ./datasource/migration/$(echo $NAME)",
+    "migration:drop": "bun run typeorm schema:drop",
+    "migration:run": "bun run migration:drop && bun run typeorm migration:run"
   },
   "devDependencies": {
     "@types/bun": "latest",
