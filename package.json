@@ -6,11 +6,18 @@
     "typeorm": "typeorm-ts-node-esm -d ./datasource/ormconfig.ts",
     "migration:generate": "bun run typeorm migration:generate ./datasource/migration/$(echo $NAME)",
     "migration:drop": "bun run typeorm schema:drop",
-    "migration:run": "bun run migration:drop && bun run typeorm migration:run"
+    "migration:run": "bun run migration:drop && bun run typeorm migration:run",
+    "migration:revert": "bun run typeorm migration:revert",
+    "seed": "bun run ./datasource/seeder/index.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "ts-node": "^10.9.2"
+    "@types/pluralize": "^0.0.33",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "pluralize": "^8.0.0",
+    "ts-node": "^10.9.2",
+    "typescript-eslint": "^7.13.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
